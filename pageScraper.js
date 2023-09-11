@@ -1,3 +1,4 @@
+const fs = require('fs')
 const scraperObject = {
 	url: 'https://studentaffairs.unt.edu/events-all',
 	async scraper(browser){
@@ -17,7 +18,11 @@ const scraperObject = {
         });
 
         console.log(eventData);
-        console.log("done");
+        fs.writeFile('data.json', JSON.stringify(eventData), (err,any) =>{
+            if(err) throw err;
+            console.log("success");
+        })
+        
 	}
 }
 
