@@ -3,12 +3,14 @@ const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 
 
-app.get('/', async (req, res) => {
+app.get('/scrape', async (req, res) => {
 
     const browser = await puppeteer.launch({
       headless: true,
@@ -37,7 +39,7 @@ app.get('/', async (req, res) => {
 
               return data;
           }); 
-          res.send(eventData);
+          res.json(eventData);
     }
   
 );

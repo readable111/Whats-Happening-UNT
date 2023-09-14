@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header.jsx';
@@ -7,30 +7,23 @@ import Search from './pages/Search';
 import Home from './pages/Home';
 import About  from './pages/About';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      greeting: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
-  handleChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    fetch(`/api/greeting?name=${encodeURIComponent(this.state.name)}`)
-      .then(response => response.json())
-      .then(state => this.setState(state));
-  }
+function App(){
+  
 
 
-render() {
+  const [eventData, setEventData] = useState([{}]);
+
+  useEffect(() => {
+    fetch("/scrape").then(
+      response=>response.json()
+    ).then(
+      data => {
+        setEventData(data);
+      }
+    )
+  }, []) ;
+
   let Component;
   switch(window.location.pathname)
   {
@@ -54,7 +47,7 @@ render() {
    </body>
   );
 
-}
-}
+};
+
 
 export default App;
