@@ -1,5 +1,5 @@
 import React from 'react'
-
+//This is just the banner that has the image of the university
 const Header = () => {
   return (
     <header className = "relative h-60 ">

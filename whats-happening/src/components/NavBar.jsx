@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+//to add a new element to the NavBar, you can just copy and past a new list element, 
 const NavBar = () => {
   return (
         <nav className = "bg-white border-gray-200 dark:bg-gray-900">
