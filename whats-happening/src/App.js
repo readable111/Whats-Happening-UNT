@@ -3,7 +3,8 @@ import Header from './components/Header.jsx';           //we import our componen
 import NavBar from './components/NavBar';
 import Search from './pages/Search';
 import Home from './pages/Home';
-import About  from './pages/About';
+import Events  from './pages/Events';
+import Login from './pages/Login.js';
 
 
 
@@ -30,8 +31,11 @@ import About  from './pages/About';
     case "/Search":                   //if the URL is /search, then we display the Search page
       Component = <Search/>;
       break;
-    case "/About":                    // if the URL is /About then we display the About page(haven't figured out how to do that for each event yet :/)
-      Component = <About/>;
+    case "/Events":                    // if the URL is /Events then we display the Events page(haven't figured out how to do that for each event yet :/)
+      Component = <Events/>;
+      break;
+    case "/Login":
+      Component = <Login/>;            //if the URL is /Login, then we display the Login page
       break;
     default:
       break;   
