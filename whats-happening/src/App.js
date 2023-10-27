@@ -4,9 +4,7 @@ import NavBar from './components/NavBar';
 import Search from './pages/Search';
 import Home from './pages/Home';
 import About  from './pages/About';
-
-
-
+import Event from './components/Events.jsx'
 
   function App(){
   const [eventData, setEventData] = useState([{}]);         //stores the API data in event data using the useState react hook
@@ -21,11 +19,12 @@ import About  from './pages/About';
     )
   }, []) ;                            //DO NOT REMOVE EMPTY BRACKET, THIS MAKES IT SO THAT THE API IS CALLED ONLY ON REFRESH, REMOVE IT AND WE GET ENDLESS API CALLS
 
+
   let Component;                      //declaring a variable to store which page is currently beign displayed.
   switch(window.location.pathname)    //switch case based off of the current URL
   {
     case "/":                         //if there is no page loaded, then display the Home page
-     Component = <Home/>;
+     Component = <Home eventData = {eventData}/>;
       break;
     case "/Search":                   //if the URL is /search, then we display the Search page
       Component = <Search/>;
@@ -42,7 +41,7 @@ import About  from './pages/About';
    <Header/>                          
    {/*NavBar component contains all of the Navigation functionaity*/}
    <NavBar/>
-      {Component}       {/*displays the current page*/}
+    {Component}  {/*displays the current page*/}
    </body>
   );
 
