@@ -26,10 +26,10 @@ import Login from './pages/Login.js';
   switch(window.location.pathname)    //switch case based off of the current URL
   {
     case "/":                         //if there is no page loaded, then display the Home page
-     Component = <Home/>;
+     Component = <Home eventData={eventData}/>;
       break;
     case "/Search":                   //if the URL is /search, then we display the Search page
-      Component = <Search/>;
+      Component = <Search eventData={eventData}/>;
       break;
     case "/Events":                    // if the URL is /Events then we display the Events page(haven't figured out how to do that for each event yet :/)
       Component = <Events/>;
