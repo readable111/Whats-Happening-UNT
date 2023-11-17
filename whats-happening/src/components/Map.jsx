@@ -13,7 +13,7 @@ const center = {
 
 
 
-function Maps(location){
+function Maps(){
 const { isLoaded }  = useJsApiLoader({
   id: 'google-map-script',
   //googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -32,12 +32,8 @@ const [map, setMap] = React.useState(null);
   }, [])
 
   const onUnmount = React.useCallback(function callback(map) {
-    const Place = new google.maps.places.PlaceService(map);
-    
-    var request = {
-        query: location,
-        fields:  ['displayName']
-    }
+    //const Place = new google.maps.places.PlaceService(map);
+  /*
     Place.findPlaceFromQuery(request, function(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
@@ -45,7 +41,7 @@ const [map, setMap] = React.useState(null);
         }
         map.setCenter(results[0].geometry.location);
       }
-    });
+    });*/
   
     setMap(null)
   }, [])

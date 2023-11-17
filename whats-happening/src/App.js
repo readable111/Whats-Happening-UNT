@@ -43,7 +43,7 @@ import About  from './pages/About';
      Component = <Home eventData={eventData}/>;
       break;
     case "/Search":                   //if the URL is /search, then we display the Search page
-      Component = <Search/>;
+      Component = <Search eventData = {eventData}/>;
       break;
     case "/About":                    // if the URL is /About then we display the About page(haven't figured out how to do that for each event yet :/)
       Component = <About/>;
