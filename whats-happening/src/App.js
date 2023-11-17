@@ -4,6 +4,18 @@ import NavBar from './components/NavBar';
 import Search from './pages/Search';
 import Home from './pages/Home';
 import About  from './pages/About';
+//import SQLite from 'react-native-sqlite-storage'
+
+
+/*const db = SQLite.openDatabase({      //datatbase decleration
+  name: 'wh-db',
+  location: 'default'
+
+  },() => {
+    console.log("Database connected");
+  }, 
+    error => console.log("Database error")
+  );*/
 
 
 
@@ -21,7 +33,9 @@ import About  from './pages/About';
     )
   }, []) ;                            //DO NOT REMOVE EMPTY BRACKET, THIS MAKES IT SO THAT THE API IS CALLED ONLY ON REFRESH, REMOVE IT AND WE GET ENDLESS API CALLS
 
-  console.log(eventData)
+ 
+
+
   let Component;                      //declaring a variable to store which page is currently beign displayed.
   switch(window.location.pathname)    //switch case based off of the current URL
   {
@@ -45,7 +59,7 @@ import About  from './pages/About';
    <NavBar/>
       {Component}   
       {/*displays the current page*/}
-
+      
    </body>
   );
 

@@ -1,46 +1,41 @@
-import React from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api'
+import React, { useState } from 'react'
+
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 
 
-  
-  const center = {
-    lat: 33.2075,
-    lng: -97.1526
-  };
-  
-  
+//const google = window.google = window.google ? window.google : {}
+
+const center = {
+  lat: 33.211996,
+  lng: -97.149138
+};
 
 
-function MyMap(location){
-    const {isLoaded} = useJsApiLoader({
-        id: 'google-map-script',
-        googleMapsApiKey: '/API KEY GOES HERE'
-    })
 
-    const [map, setMap] = React.useState(null)
-    const onLoad = React.useCallback(function callback(map){
 
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+function Maps(location){
 
-    setMap(map)
-  }, [])
 
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
+const { isLoaded } = useJsApiLoader({
+  googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+  libraries: ['places']
+})
 
-  return isLoaded ? (
-      <GoogleMap
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
-      </GoogleMap>
-  ) : <></>
+
+return(
+  <>
+  <GoogleMap 
+  center = {center}
+   zoom ={15}
+  mapContainerStyle={{width:'50%', height: '100%' }}
+  options={{
+      zoomControl: false,
+      streetViewControl: false,
+      mapTypeControl: false,
+  }}><Marker position={center}/> center=</GoogleMap>
+  </>
+)
+
 }
+export default Maps;
 
-export default React.memo(MyMap)
