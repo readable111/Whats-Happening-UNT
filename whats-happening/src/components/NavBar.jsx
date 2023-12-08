@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <nav >
       <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul className="font-medium flex flex-col p-4 md:p-2 border-gray-100 rounded-none bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-emerald-950 dark:border-gray-700">
+        <ul className="font-medium flex flex-col p-4 md:p-2 border-gray-100 rounded-none  md:flex-row bg-gray-800 md:dark:bg-emerald-950 dark:border-gray-700">
           <a href="/" className="block md:p-0 md:pl-4">
             <button class="px-4 py-1 text-white rounded-full shadow-sm hover:bg-green-500/75 ease-in-out delay-150 duration-300">Home</button>
           </a>
