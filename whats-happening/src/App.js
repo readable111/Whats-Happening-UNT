@@ -4,21 +4,21 @@ import NavBar from './components/NavBar';
 import Search from './pages/Search';
 import Home from './pages/Home';
 import About  from './pages/About';
-//import SQLite from 'react-native-sqlite-storage'
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+import firebaseConfig from './firebase.js';
+import { getFirestore } from 'firebase/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { initializeApp } from "firebase/app";
+import { collection, addDoc } from 'firebase/firestore';
 
+const app = firebase.initializeApp(firebaseConfig);
 
-/*const db = SQLite.openDatabase({      //datatbase decleration
-  name: 'wh-db',
-  location: 'default'
-
-  },() => {
-    console.log("Database connected");
-  }, 
-    error => console.log("Database error")
-  );*/
-
-
-
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+const db = getFirestore(app);
 
   function App(){
   const [eventData, setEventData] = useState([{}]);         //stores the API data in event data using the useState react hook
@@ -33,8 +33,19 @@ import About  from './pages/About';
     )
   }, []) ;                            //DO NOT REMOVE EMPTY BRACKET, THIS MAKES IT SO THAT THE API IS CALLED ONLY ON REFRESH, REMOVE IT AND WE GET ENDLESS API CALLS
 
- 
-
+/*try{
+    eventData.forEach( async function(event){
+      const docRef = db.collection('events').doc(event.Title);
+      await docRef.set({
+        Title: event.Title,
+        Date: event.Date,
+        Description:event.Description
+      })
+    })
+    }
+  catch(e){
+    console.error("error adding document")
+  }*/
 
   let Component;                      //declaring a variable to store which page is currently beign displayed.
   switch(window.location.pathname)    //switch case based off of the current URL

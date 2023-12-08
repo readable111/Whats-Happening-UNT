@@ -1,6 +1,6 @@
 import React from 'react'
 import Event from '../components/Events'
-import Maps from '../components/Map'
+import Maps from '../components/Map.jsx'
 
 const Home = ({eventData}) => {
   
@@ -14,7 +14,7 @@ const Home = ({eventData}) => {
                 </ul>
                     <div id= "map"></div>
             </div>
-          <Maps/>
+          <Maps eventData = {eventData}/>
         </div>
         );  
 }

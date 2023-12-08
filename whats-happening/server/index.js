@@ -35,14 +35,30 @@ app.get('/scrape', async (req, res) => {      //opens up an actual http request
                   Title: event.querySelector('.event-title').innerText,
                   Date: event.querySelector('time').getAttribute('datetime'),
                   Description: event.querySelector('div p').innerText,
+                  Location: event.querySelector('span').innerText
           
               }));
 
               return data;        //return data to the variable eventData
           }); 
-          res.json(eventData);    //when the API is finished running code on the server side, we respond(res) to the request with a json version of eventData
+         //when the API is finished run
+         const updatedEvents= eventData.map(event => {
+          // Find the index of the hyphen
+          const hyphenIndex = event.Location.indexOf('-');
+        
+          // If a hyphen is found, update the Location property
+          if (hyphenIndex !== -1) {
+            event.Location = event.Location.substring(hyphenIndex + 1).trim();
+          }
+        
+          return event;
+        });
+        console.log(updatedEvents)
+          res.json(updatedEvents); 
+           //when the API is finished running code on the server side, we respond(res) to the request with a json version of eventData
     }
-  
+     
+
 );
 
 app.listen(3001, () =>            //prints on run to show that server is running
