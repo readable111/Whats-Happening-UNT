@@ -5,7 +5,7 @@ import Maps from '../components/Map.jsx'
 const Home = ({eventData}) => {
   
         return(
-        <div className = "font-mono p-2 h-screen bg-white mx-20 flex border-black border">
+        <div className = "font-mono p-2 h-screen bg-gray-800 mx-20 flex border-black border">
             <div className = "w-1/2 flex items-start">
                 <ul className = "h-full  border-black bg-gray-200 w-full overflow-auto"> 
                     { eventData.map((item) => {
