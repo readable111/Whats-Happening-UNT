@@ -8,11 +8,10 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import firebaseConfig from './firebase.js';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { initializeApp } from "firebase/app";
-import { collection, addDoc } from 'firebase/firestore';
 
 const app = firebase.initializeApp(firebaseConfig);
 

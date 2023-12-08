@@ -35,8 +35,8 @@ app.get('/scrape', async (req, res) => {      //opens up an actual http request
                   Title: event.querySelector('.event-title').innerText,
                   Date: event.querySelector('time').getAttribute('datetime'),
                   Description: event.querySelector('div p').innerText,
-                  Location: event.querySelector('span').innerText
-          
+                  Location: event.querySelector('span').innerText,
+                  Link: event.querySelector('a').getAttribute('href')
               }));
 
               return data;        //return data to the variable eventData
