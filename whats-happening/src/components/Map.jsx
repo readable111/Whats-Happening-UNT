@@ -239,7 +239,7 @@ UNT_Locations.push({
   
 const { isLoaded }  = useJsApiLoader({
   id: 'google-map-script',
-  googleMapsApiKey: 'AIzaSyCberKoelaE5uWHmTgo_lxNlMXvU92BrhE',
+  googleMapsApiKey: '',
   libraries: ['places']
 })
 
